@@ -2,18 +2,88 @@
 <html>
 <head>
     <title>Open Envoy - Code Estimator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f6f9fc;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #3f51b5;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-container {
+            display: flex;
+            align-items: center;
+        }
+        .input-container select {
+            margin-right: 20px;
+        }
+        #estimateButtonContainer {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #estimateButton {
+            background-color: #3f51b5;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #estimateButton:hover {
+            background-color: #34408c;
+        }
+        #errorMessage {
+            color: red;
+            margin: 0 0 0 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>JavaScript Code Analyzer</h1>
-    <form id="fileUploadForm">
-        <input type="file" id="fileInput" accept=".js">
-        <button type="button" onclick="analyzeCode()">Analyze</button>
-    </form>
-    <div id="result">
+    <div class="header">
+        <h1>Lines of Code Estimator</h1>
+    </div>
+
+    <div class="container">
+        <div class="input-container">
+            <label for="languageSelect">Select a Language:</label>
+            <select id="languageSelect">
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="go">Go</option>
+                <!-- You can add more language options here -->
+            </select>
+            <input type="file" id="fileInput">
+        </div>
+
+        <div id="estimateButtonContainer">
+            <button id="estimateButton" onclick="estimateCode()">Estimate Code</button>
+            <p id="errorMessage" style="display: none;"></p>
+        </div>
+
+        <h2>Analysis Results:</h2>
         <p>Lines of Code: <span id="codeLines">0</span></p>
         <p>Lines of Comments: <span id="commentLines">0</span></p>
         <p>Total Lines: <span id="totalLines">0</span></p>
         <p>Empty Lines: <span id="emptyLines">0</span></p>
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
