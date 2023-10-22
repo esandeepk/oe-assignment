@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Open Envoy - Code Estimator</title>
+</head>
+<body>
+    <h1>JavaScript Code Analyzer</h1>
+    <form id="fileUploadForm">
+        <input type="file" id="fileInput" accept=".js">
+        <button type="button" onclick="analyzeCode()">Analyze</button>
+    </form>
+    <div id="result">
+        <p>Lines of Code: <span id="codeLines">0</span></p>
+        <p>Lines of Comments: <span id="commentLines">0</span></p>
+        <p>Total Lines: <span id="totalLines">0</span></p>
+        <p>Empty Lines: <span id="emptyLines">0</span></p>
+    </div>
+</body>
+</html>
